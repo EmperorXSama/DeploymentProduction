@@ -1,0 +1,28 @@
+# Git
+.git/
+.github/
+
+# .NET
+**/bin/
+**/obj/
+.vs/
+.idea/
+*.user
+*.suo
+
+# Node / React
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

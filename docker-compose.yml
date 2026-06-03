@@ -1,0 +1,37 @@
+services:
+  api:
+    image: deploymentproduction-api:local
+    build:
+      context: .
+      dockerfile: src/DeploymentProduction.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      AppVersion: local-compose
+    ports:
+      - "5005:8080"
+
+  bff:
+    image: deploymentproduction-bff:local
+    build:
+      context: .
+      dockerfile: src/DeploymentProduction.Bff/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      AppVersion: local-compose
+      Services__ApiBaseUrl: http://api:8080
+    ports:
+      - "5006:8080"
+    depends_on:
+      - api
+
+  spa:
+    image: deploymentproduction-spa:local
+    build:
+      context: .
+      dockerfile: src/DeploymentProduction.Spa/Dockerfile
+    environment:
+      BFF_UPSTREAM: http://bff:8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - bff
