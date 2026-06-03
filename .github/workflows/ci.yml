@@ -23,10 +23,10 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Restore .NET solution
-        run: dotnet restore DeploymentDemo.slnx
+        run: dotnet restore DeploymentProduction.slnx
 
       - name: Build .NET solution
-        run: dotnet build DeploymentDemo.slnx --configuration Release --no-restore
+        run: dotnet build DeploymentProduction.slnx --configuration Release --no-restore
 
   build-spa:
     name: Build React SPA
@@ -34,7 +34,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: src/DeploymentDemo.Spa
+        working-directory: src/DeploymentProduction.Spa
 
     steps:
       - name: Checkout source
@@ -45,7 +45,7 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-          cache-dependency-path: src/DeploymentDemo.Spa/package-lock.json
+          cache-dependency-path: src/DeploymentProduction.Spa/package-lock.json
 
       - name: Install SPA dependencies
         run: npm ci
