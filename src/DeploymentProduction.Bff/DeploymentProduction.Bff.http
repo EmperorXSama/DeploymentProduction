@@ -1,0 +1,6 @@
+@DeploymentProduction.Bff_HostAddress = http://localhost:5038
+
+GET {{DeploymentProduction.Bff_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
