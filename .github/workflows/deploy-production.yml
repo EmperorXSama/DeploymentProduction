@@ -18,9 +18,9 @@ env:
   IMAGE_OWNER: emperorxsama
   RESOURCE_GROUP: rg-deploymentproduction
 
-  API_APP_NAME: deploymentproduction-api-production
-  BFF_APP_NAME: deploymentproduction-bff-production
-  SPA_APP_NAME: deploymentproduction-spa-production
+  API_APP_NAME: deploymentproduction-api-prod
+  BFF_APP_NAME: deploymentproduction-bff-prod
+  SPA_APP_NAME: deploymentproduction-spa-prod
 
 jobs:
   deploy-production:
